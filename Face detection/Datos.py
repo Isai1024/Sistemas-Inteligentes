@@ -4,14 +4,14 @@ import imutils
 
 personName = "Alan"
 #Url donde se encuetra las imagenes de los usuarios
-dataPath = "" 
+dataPath = "/home/alan/Documentos/Sistemas-Inteligentes/Face detection/Datos" 
 personPath = dataPath + '/' + personName
 
 if not os.path.exists(personPath):
     print("Creando carpeta")
     os.makedirs(personPath)
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(2)
 
 faceClassif = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 count = 0
@@ -32,7 +32,7 @@ while cap.isOpened():
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
         rostro = auxFrame[y:y + h, x:x + w]
         rostro = cv2.resize(rostro, (720, 720), interpolation=cv2.INTER_CUBIC)
-        cv2.imwrite(personPath + '/rostro{}.jpg'.format(count).rostro)
+        cv2.imwrite(personPath + '/rostro_{}.jpg'.format(count), rostro)
         count = count + 1
     
     cv2.imshow('frame', frame)
