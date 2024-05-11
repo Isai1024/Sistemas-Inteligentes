@@ -1,0 +1,2 @@
+Se tiene que crear una carpeta donde se guardaran las imagenes.
+Eso es todo :D
